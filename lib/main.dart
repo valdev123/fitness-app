@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/database/app_database.dart';
+import 'features/training/presentation/screens/exercise_library_screen.dart';
 
 Future<void> main() async {
-  // 1. On s'assure que le moteur Flutter est prêt
+  // On s'assure que le moteur Flutter est prêt
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 2. On initialise la base de données locale (Isar)
-  // C'est ici qu'on charge les données sur le S25 avant de lancer l'interface
+  // On initialise la base de données locale (Isar)
   final isar = await AppDatabase.init();
 
-  // 3. On lance l'application
+  // On lance l'application
   runApp(
     // ProviderScope est indispensable pour Riverpod
     ProviderScope(
@@ -29,20 +29,13 @@ class MyFitnessApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Fitness App S25',
+      title: 'Fitness App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      // Juste un écran vide pour l'instant pour valider que ça marche
-      home: const Scaffold(
-        body: Center(
-          child: Text(
-            'Setup Terminé ! 🚀',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: const ExerciseLibraryScreen(),
     );
   }
 }
