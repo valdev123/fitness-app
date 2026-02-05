@@ -1,0 +1,43 @@
+name: my_fitness_app
+description: "Mon application de fitness perso sur S25."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # --- Architecture & State ---
+  flutter_riverpod: ^2.5.1  # Version stable et robuste
+  go_router: ^13.2.0        # Navigation
+
+  # --- Base de données (Locale) ---
+  isar: ^3.1.0+1
+  isar_flutter_libs: ^3.1.0+1
+  path_provider: ^2.1.2
+
+  # --- Utilitaires & UI ---
+  google_fonts: ^6.1.0
+  fl_chart: ^0.66.2        # Pour tes graphiques
+  intl: ^0.19.0            # Pour les dates
+  dartz: ^0.10.1           # Programmation fonctionnelle
+  json_annotation: ^4.8.1
+  freezed_annotation: ^2.4.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  # --- Générateurs de code ---
+  build_runner: ^2.4.8
+  isar_generator: ^3.1.0+1
+  freezed: ^2.4.7
+  json_serializable: ^6.7.1
+  # J'ai retiré riverpod_lint pour l'instant car il crée le conflit avec Isar.
+  # On pourra le remettre plus tard si Isar se met à jour.
+
+flutter:
+  uses-material-design: true
